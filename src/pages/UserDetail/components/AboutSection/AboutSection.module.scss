@@ -1,0 +1,26 @@
+$text-primary: #0f172a;
+$text-secondary: #475569;
+$border-color: #e2e8f0;
+$radius-md: 12px;
+
+.aboutContainer {
+    background: #fff;
+    padding: 32px;
+    border-radius: $radius-md;
+    border: 1px solid $border-color;
+    margin-bottom: 32px;
+
+    h2 {
+        font-size: 20px;
+        font-weight: 800;
+        color: $text-primary;
+        margin-bottom: 16px;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: $text-secondary;
+        margin: 0;
+    }
+}

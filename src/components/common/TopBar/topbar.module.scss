@@ -1,0 +1,69 @@
+$border: #e5e7eb;
+$text: #1f2937;
+$muted: #6b7280;
+$accent: #6c63ff;
+$surface: #ffffff;
+
+.topBar {
+    max-width: 1200px;
+    margin: 0 auto 28px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: $muted;
+
+    span {
+        color: #94a3b8;
+        cursor: pointer;
+        transition: color 0.2s;
+
+        &:last-child {
+            color: $text;
+            font-weight: 500;
+            cursor: default;
+        }
+
+        &:first-child:hover {
+            color: $accent;
+        }
+    }
+
+    svg {
+        opacity: 0.4;
+        font-size: 10px;
+    }
+}
+
+.backBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 10px;
+    border: 1px solid $border;
+    background: $surface;
+    color: $text;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+
+    &:hover {
+        background: $accent;
+        border-color: $accent;
+        color: #fff;
+    }
+
+    svg {
+        font-size: 14px;
+    }
+}

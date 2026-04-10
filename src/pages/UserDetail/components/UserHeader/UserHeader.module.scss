@@ -1,0 +1,192 @@
+@import "../../../../pages/Messages/messages.module.scss";
+
+$blue: #2563eb;
+$blue-dark: #1d4ed8;
+$blue-light: #eff6ff;
+$text-primary: #0f172a;
+$text-secondary: #475569;
+$text-muted: #94a3b8;
+$border-color: #e2e8f0;
+$danger: #ef4444;
+
+$radius-lg: 16px;
+$radius-md: 12px;
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+.headerContainer {
+    background: #fff;
+    padding: 32px;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 24px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 24px;
+    }
+}
+
+.userMain {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+.avatarWrapper {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: $shadow-md;
+}
+
+.userInfo {
+    .nameRow {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+
+        @media (max-width: 768px) { justify-content: center; }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: $text-primary;
+            margin: 0;
+        }
+
+        .verifiedIcon {
+            color: $blue;
+            font-size: 18px;
+        }
+    }
+
+    .metaInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        color: $text-muted;
+        font-size: 14px;
+        font-weight: 500;
+
+        span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            @media (max-width: 768px) { justify-content: center; }
+        }
+    }
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    @media (max-width: 1024px) {
+        gap: 8px;
+    }
+
+    @media (max-width: 768px) {
+        width: auto;
+        margin-top: 16px;
+        justify-content: center;
+    }
+}
+
+.btnPrimary, .btnSecondary, .btnDanger {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 38px; // Daha kiçik hündürlük
+    padding: 0 16px; // Daha kiçik padding
+    border-radius: 100px; // Pill shape
+    font-weight: 700;
+    font-size: 13px; // Daha kiçik font
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1.5px solid transparent;
+    white-space: nowrap;
+    position: relative; // Tooltip üçün lazımdır
+
+    svg {
+        font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+        width: 42px; // Dairevi ölçü
+        height: 42px;
+        padding: 0;
+        border-radius: 50%;
+        
+        span {
+            display: none; // Mətni gizlədirik
+        }
+
+        &::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            background: #1e293b;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 100;
+        }
+
+        &:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+}
+
+.btnPrimary {
+    background: $blue;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba($blue, 0.1);
+    &:hover { background: $blue-dark; transform: translateY(-2px); box-shadow: 0 6px 16px rgba($blue, 0.2); }
+}
+
+.btnSecondary {
+    background: #fff;
+    color: $text-primary;
+    border-color: $border-color;
+    &:hover { border-color: $blue; color: $blue; background: $blue-light; transform: translateY(-2px); }
+}
+
+.btnDanger {
+    background: transparent;
+    color: $danger;
+    border-color: rgba($danger, 0.12);
+    &:hover { background: rgba($danger, 0.05); border-color: $danger; transform: translateY(-2px); }
+}

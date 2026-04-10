@@ -1,0 +1,35 @@
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #0e95dd;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(30, 176, 255, 0.2);
+  white-space: nowrap;
+}
+
+.addBtn:hover {
+  background: #fbbf24;
+  color: #050b1a; // Dark text for better contrast on yellow
+  box-shadow: 0 6px 16px rgba(251, 191, 36, 0.4);
+  transform: translateY(-2px);
+}
+
+.addBtn:active {
+  transform: translateY(0) scale(0.96);
+}
+
+@media (max-width: 480px) {
+  .addBtn {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+}

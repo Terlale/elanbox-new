@@ -1,0 +1,259 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal {
+    background: #fff;
+    width: 100%;
+    max-width: 500px;
+    height: 600px;
+    max-height: 80vh;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    animation: modalIn 0.3s ease-out;
+}
+
+@keyframes modalIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header {
+    padding: 16px 24px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+
+.sellerInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #f1f5f9;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        color: #94a3b8;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1e293b;
+        margin: 0;
+    }
+
+    span {
+        font-size: 13px;
+        color: #64748b;
+    }
+}
+
+.closeBtn {
+    background: #f1f5f9;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #e2e8f0;
+        color: #1e293b;
+    }
+}
+
+.chatArea {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #e2e8f0;
+        border-radius: 10px;
+    }
+}
+
+.messageWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &.own {
+        align-items: flex-end;
+
+        .message {
+            background: #2563eb;
+            color: #fff;
+            border-radius: 18px 18px 2px 18px;
+        }
+
+        .time {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 16px;
+    background: #fff;
+    border-radius: 18px 18px 18px 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    position: relative;
+
+    p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+.time {
+    display: block;
+    font-size: 10px;
+    margin-top: 4px;
+    color: #94a3b8;
+    text-align: right;
+}
+
+.empty {
+    text-align: center;
+    color: #94a3b8;
+    padding-top: 40px;
+    font-size: 14px;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #2563eb;
+}
+
+.quickReplies {
+    padding: 12px 20px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    background: #fff;
+    border-top: 1px solid #f1f5f9;
+
+    &::-webkit-scrollbar {
+        height: 0;
+    }
+
+    scrollbar-width: none;
+}
+
+.quickBtn {
+    white-space: nowrap;
+    padding: 8px 16px;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 100px;
+    font-size: 13px;
+    color: #1d4ed8;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #2563eb;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+}
+
+.inputArea {
+    padding: 16px 20px;
+    background: #fff;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    gap: 12px;
+
+    input {
+        flex: 1;
+        background: #f1f5f9;
+        border: 1px solid transparent;
+        padding: 12px 18px;
+        border-radius: 14px;
+        font-size: 14px;
+        transition: all 0.2s;
+
+        &:focus {
+            outline: none;
+            background: #fff;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+    }
+
+    button {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: #2563eb;
+        color: #fff;
+        border: none;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.2s;
+
+        &:disabled {
+            background: #e2e8f0;
+            cursor: not-allowed;
+        }
+
+        &:hover:not(:disabled) {
+            background: #1d4ed8;
+            transform: scale(1.05);
+        }
+    }
+}

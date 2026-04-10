@@ -1,0 +1,156 @@
+$border: #e5e7eb;
+$text: #1f2937;
+$muted: #6b7280;
+$red: #dc2626;
+
+/* ── Icon variant (for cards) ── */
+.favIcon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 6px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    z-index: 10;
+    cursor: pointer;
+
+    &.active {
+        color: #ef4444;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+/* ── Button variant (for detail pages) ── */
+.favBtn {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid $border;
+    background: #f9fafb;
+    color: $muted;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    transition: all 0.2s;
+
+    &:hover {
+        border-color: $red;
+        color: $red;
+        background: #fee2e2;
+    }
+
+    &.active {
+        background: #fee2e2;
+        border-color: $red;
+        color: $red;
+    }
+}
+
+/* ── Confirm Modal ── */
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+}
+
+.modal {
+    background: #fff;
+    border: 1px solid $border;
+    border-radius: 16px;
+    padding: 28px 32px;
+    min-width: 300px;
+    max-width: 360px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    color: $text;
+    position: relative;
+
+    h3 {
+        margin: 0 0 8px;
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+    p {
+        margin: 0 0 22px;
+        font-size: 14px;
+        color: $muted;
+        line-height: 1.5;
+    }
+}
+
+.closeIcon {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    cursor: pointer;
+    opacity: 0.4;
+    font-size: 16px;
+    color: #374151;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.heartIcon {
+    font-size: 34px;
+    color: $red;
+    margin-bottom: 12px;
+}
+
+.btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.cancelBtn {
+    flex: 1;
+    padding: 10px 0;
+    border-radius: 10px;
+    border: 1px solid $border;
+    background: #f9fafb;
+    color: #374151;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+
+    &:hover {
+        background: $border;
+    }
+}
+
+.confirmBtn {
+    flex: 1;
+    padding: 10px 0;
+    border-radius: 10px;
+    border: none;
+    background: $red;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+
+    &:hover {
+        background: darken($red, 8%);
+    }
+}

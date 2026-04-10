@@ -1,0 +1,39 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+
+  h1 {
+    color: #4caf50;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 400px;
+  }
+
+  button {
+    background: #7b4eff;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #6840d4;
+    }
+  }
+
+  .error & h1 {
+    color: #f44336;
+  }
+}
